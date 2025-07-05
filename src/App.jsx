@@ -10,6 +10,12 @@ import StarRating from "./component/HWLS4/state2/StarRating.js";
 import ProductCard from "./component/HWLS4/state3/RemoveProduct.js";
 import RemoveProduct from "./component/HWLS4/state3/RemoveProduct.js";
 import { useState } from "react";
+import LiftingStateUp from "./component/HWLS5/LiftingStateUp.js";
+import { UserProvider } from "./component/HWLS5/context/UserContext.js";
+import UserInfor from "./component/HWLS5/context/UserInfor.js";
+import ButtonClickCounter from "./component/HWLS5/Practices/ButtonClickCounter.js";
+import InputFieldTracker from "./component/HWLS5/Practices/InputFieldTracker.js";
+import ExerciseSummary from "./component/HWLS5/Practices/index.js";
 const mockNewsData = [
   {
     image:
@@ -163,105 +169,115 @@ function App() {
     setProducts((prev) => prev.filter((p) => p.id !== idToRemove));
   };
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <h2>TIN MỚI</h2>
-        <span>Xem thêm</span>
-      </div>
+    // <div>
+    //   <div
+    //     style={{
+    //       display: "flex",
+    //       justifyContent: "space-between",
+    //       alignItems: "center",
+    //     }}
+    //   >
+    //     <h2>TIN MỚI</h2>
+    //     <span>Xem thêm</span>
+    //   </div>
 
-      <div
-        style={{ display: "flex", justifyContent: "space-around", gap: "20px" }}
-      >
-        {mockNewsData.map((item, index) => (
-          <Card key={index} {...item} />
-        ))}
-      </div>
-      <h1
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "left",
-        }}
-      >
-        Phụ kiện tương thích
-      </h1>
+    //   <div
+    //     style={{ display: "flex", justifyContent: "space-around", gap: "20px" }}
+    //   >
+    //     {mockNewsData.map((item, index) => (
+    //       <Card key={index} {...item} />
+    //     ))}
+    //   </div>
+    //   <h1
+    //     style={{
+    //       display: "flex",
+    //       alignItems: "center",
+    //       justifyContent: "left",
+    //     }}
+    //   >
+    //     Phụ kiện tương thích
+    //   </h1>
 
-      <div
-        style={{
-          display: "flex",
-          marginTop: "20px",
-          width: "100%",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-        }}
-      >
-        {data2.map((item, index) => (
-          <Card2 key={index} {...item} />
-        ))}
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginTop: "40px",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <h1>Deal of the day</h1>
-          <CountdownTimer endTime={targetDate} label="Flash Sale còn:" />
-        </div>
+    //   <div
+    //     style={{
+    //       display: "flex",
+    //       marginTop: "20px",
+    //       width: "100%",
+    //       flexWrap: "wrap",
+    //       justifyContent: "space-between",
+    //     }}
+    //   >
+    //     {data2.map((item, index) => (
+    //       <Card2 key={index} {...item} />
+    //     ))}
+    //   </div>
+    //   <div
+    //     style={{
+    //       display: "flex",
+    //       justifyContent: "space-between",
+    //       alignItems: "center",
+    //       marginTop: "40px",
+    //     }}
+    //   >
+    //     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+    //       <h1>Deal of the day</h1>
+    //       <CountdownTimer endTime={targetDate} label="Flash Sale còn:" />
+    //     </div>
 
-        <span>View all</span>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          marginTop: "20px",
-          width: "100%",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-        }}
-      >
-        {data3.map((item, index) => (
-          <Card3 key={index} {...item} />
-        ))}
-      </div>
+    //     <span>View all</span>
+    //   </div>
+    //   <div
+    //     style={{
+    //       display: "flex",
+    //       marginTop: "20px",
+    //       width: "100%",
+    //       flexWrap: "wrap",
+    //       justifyContent: "space-between",
+    //     }}
+    //   >
+    //     {data3.map((item, index) => (
+    //       <Card3 key={index} {...item} />
+    //     ))}
+    //   </div>
 
-      <div>
-        <h2>Chọn màu sắc:</h2>
-        <ColorSelector
-          colors={["Đen", "Hồng", "Xanh"]}
-          defaultColor="Đen"
-          label="Màu:"
-          onColorChange={handleColorChange}
-        />
-      </div>
+    //   <div>
+    //     <h2>Chọn màu sắc:</h2>
+    //     <ColorSelector
+    //       colors={["Đen", "Hồng", "Xanh"]}
+    //       defaultColor="Đen"
+    //       label="Màu:"
+    //       onColorChange={handleColorChange}
+    //     />
+    //   </div>
 
-      <div>
-        <h3>Đánh giá sản phẩm:</h3>
-        <StarRating onRate={handleRating} />
-      </div>
+    //   <div>
+    //     <h3>Đánh giá sản phẩm:</h3>
+    //     <StarRating onRate={handleRating} />
+    //   </div>
 
-      <div style={{ display: "flex",justifyContent: "center", gap: "20px" }}>
-       {products.map((product) => (
-           <RemoveProduct
-          key={product.id}
-          name={product.name}
-          price={product.price}
-          urlImage={product.urlImage}
-          onRemove={() => handleRemove(product.id)}
-        />
-      ))}
-      </div>
+    //   <div style={{ display: "flex",justifyContent: "center", gap: "20px" }}>
+    //    {products.map((product) => (
+    //        <RemoveProduct
+    //       key={product.id}
+    //       name={product.name}
+    //       price={product.price}
+    //       urlImage={product.urlImage}
+    //       onRemove={() => handleRemove(product.id)}
+    //     />
+    //   ))}
+    //   </div>
        
+    // </div>
+    // <div>
+    //   <LiftingStateUp />
+    // </div>
+    // <UserProvider>
+    //   <UserInfor/>
+    // </UserProvider>
+    <div>
+  <ExerciseSummary />
     </div>
+   
   );
 }
 

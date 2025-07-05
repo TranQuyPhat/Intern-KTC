@@ -28,7 +28,7 @@ const handleClick= (star: number) => {
             style={{ cursor: 'pointer' }}
             color={isFilled ? 'orange' : '#ccc'}
             onClick={() => handleClick(starIndex)}
-            onMouseLeave={() => setHoveredStar(null)}
+                onMouseLeave={() => setHoveredStar(null)}
           />
         );
       })}
