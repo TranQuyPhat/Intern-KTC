@@ -1,22 +1,25 @@
 import React from "react";
-import Question from "./component/OneChoiceQuestion/index.js";
-import Card from "./component/HWLS4/render-list-03/Card.js";
-import Card2 from "./component/HWLS4/render-list-04/Card2.js";
-import Card3 from "./component/HWLS4/render-list-05/Card3.js";
-import CountdownTimer from "./component/HWLS4/render-list-05/CountdownTimer.js";
-import ColorSelector from "./component/HWLS4/state1/ColorSelector.js";
-import StarRating from "./component/HWLS4/state2/StarRating.js";
-import ProductCard from "./component/HWLS4/state3/RemoveProduct.js";
-import RemoveProduct from "./component/HWLS4/state3/RemoveProduct.js";
+import Question from "./OneChoiceQuestion/index.js";
+import Card from "./HWLS4/render-list-03/Card.js";
+import Card2 from "./HWLS4/render-list-04/Card2.js";
+import Card3 from "./HWLS4/render-list-05/Card3.js";
+import CountdownTimer from "./HWLS4/render-list-05/CountdownTimer.js";
+import ColorSelector from "./HWLS4/state1/ColorSelector.js";
+import StarRating from "./HWLS4/state2/StarRating.js";
+import ProductCard from "./HWLS4/state3/RemoveProduct.js";
+import RemoveProduct from "./HWLS4/state3/RemoveProduct.js";
 import { useState } from "react";
-import LiftingStateUp from "./component/HWLS5/LiftingStateUp.js";
-import { UserProvider } from "./component/HWLS5/context/UserContext.js";
-import UserInfor from "./component/HWLS5/context/UserInfor.js";
-import ButtonClickCounter from "./component/HWLS5/Practices/ButtonClickCounter.js";
-import InputFieldTracker from "./component/HWLS5/Practices/InputFieldTracker.js";
-import ExerciseSummary from "./component/HWLS5/Practices/index.js";
-import Lession6 from "./component/LS6/index.js";
-import Customer from "./component/LS6/CRUD/index.js";
+import LiftingStateUp from "./HWLS5/LiftingStateUp.js";
+import { UserProvider } from "./HWLS5/context/UserContext.js";
+import UserInfor from "./HWLS5/context/UserInfor.js";
+import ButtonClickCounter from "./HWLS5/Practices/ButtonClickCounter.js";
+import InputFieldTracker from "./HWLS5/Practices/InputFieldTracker.js";
+import ExerciseSummary from "./HWLS5/Practices/index.js";
+import Lession6 from "./LS6/index.js";
+import Customer from "./LS6/CRUD/index.js";
+// import SPADataRouting from "./LS7/SPADataRouting.js";
+// import SpaExample from "./LS7/SpaExample.js";
+import LS7 from "./LS7/index.js";
 const mockNewsData = [
   {
     image:
@@ -278,7 +281,10 @@ function App() {
     <div>
   {/* <ExerciseSummary /> */}
   {/* <Lession6/> */}
-    <Customer/>
+    {/* <Customer/> */}
+    {/* <SPADataRouting/> */}
+    {/* <SpaExample/> */}
+    <LS7/>
     </div>
    
   );

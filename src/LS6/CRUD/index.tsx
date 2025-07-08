@@ -7,6 +7,7 @@ type Props = {}
 export default function Customer({}: Props) {
   return (
     <div>
+        
         <List/>
     </div>
   )
