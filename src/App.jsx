@@ -20,6 +20,9 @@ import Customer from "./LS6/CRUD/index.js";
 // import SPADataRouting from "./LS7/SPADataRouting.js";
 // import SpaExample from "./LS7/SpaExample.js";
 import LS7 from "./LS7/index.js";
+import LS9 from "./LS9/index.js";
+import BT1 from "./LS9/BT1/index.js";
+import { BrowserRouter, Route, Routes } from "react-router";
 const mockNewsData = [
   {
     image:
@@ -278,15 +281,20 @@ function App() {
     // <UserProvider>
     //   <UserInfor/>
     // </UserProvider>
-    <div>
-  {/* <ExerciseSummary /> */}
-  {/* <Lession6/> */}
-    {/* <Customer/> */}
-    {/* <SPADataRouting/> */}
-    {/* <SpaExample/> */}
-    <LS7/>
-    </div>
-   
+    // <div>
+  // <ExerciseSummary />
+  // <Lession6/>
+  //   <Customer/>
+  //   <SPADataRouting/>
+  //   <SpaExample/>
+  //   <LS7/>
+  //   <BT1/>
+  //   </div>
+   <BrowserRouter>
+      <Routes>
+        <Route path="/ls9/*" element={<LS9 />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
